@@ -29,6 +29,8 @@ from __init__ import ver, title
 import os
 from otpy_func import checksys
 
+os.system("cd .. && start clearcache.bat")
+
 checksys()
 #define functions
 def pause():

@@ -20,14 +20,14 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.3
+#otpy v0.0.4
 #changelog:
-## deleted batch switches
-## added clearcache.bat
-## added nameset
-## added otpy_func
+## added intro
+## added sqlite name storage
+## clearcache.bat will now clear both __pycache__ and the tmp directory before each playthrough
 
-ver = "0.0.3"
+
+ver = "0.0.4"
 title = "otpy v{0}".format(ver)
 
 #otpy is a simulator of the popular 1974 game "The Oregon Trail",

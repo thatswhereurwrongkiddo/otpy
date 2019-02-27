@@ -20,35 +20,33 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#nameset.py
-#set up names for your wagon party members
+#intro.py
+#provides story intro
 
-from otpy_func import clearscreen, vernotice
+from otpy_func import *
 from color_storage import txtc_wb, bgc_wb, resetc_wb
-import sqlite3 as sql
+from sql_names import *
 
 clearscreen()
 vernotice()
 
-print(txtc_wb + bgc_wb + "Type the names of the members of your wagon party:")
-print("                                                  ")
-mm1 = input("1 (You): ")
-mm2 = input("2: ")
-mm3 = input("3: ")
-mm4 = input("4: ")
-mm5 = input("5: ")
-mm6 = input("6: ")
+
+print(txtc_wb + bgc_wb + """Welcome to the Oregon Trail!
+The year is 1847
+By your side, you, {0}, have your faithful companions:
+{1}
+{2}
+{3}
+{4}
+{5}""".format(mm1, mm2, mm3, mm4, mm5, mm6))
+print("")
+print("""Your journey to Oregon begins in Independence, MO
+You started off with $1000, bought a wagon for $200, now you have $800
+left to spend.
+""")
+input("Press ENTER to visit the General Store...")
+
+clearscreen()
 print(resetc_wb)
-
-import os
-os.system("cd .. && mkdir tmp")
-conn = sql.connect("../tmp/nameset.db")
-cursor = conn.cursor()
-cursor.execute('''CREATE TABLE `otpy_names`(
-`num` INTEGER,
-`name` TEXT
-);''')
-cursor.execute('INSERT INTO otpy_names (num, name) VALUES (1, "{0}"),(2, "{1}"),(3, "{2}"),(4, "{3}"),(5, "{4}"),(6, "{5}")'.format(mm1,mm2,mm3,mm4,mm5,mm6))
-conn.commit()
-
-os.system("python intro.py")
+print("Store coming in v0.0.5")
+input("Press ENTER to continue...")
