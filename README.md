@@ -1,6 +1,6 @@
 # otpy v0.0.3
 
-otpy is a simulator of the popular 1974 game "The Oregon Trail",
+otpy is a python rewrite of the popular 1974 game "The Oregon Trail",
 developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
 published by the Minnesota Educational Computing Consortium (MECC).
 
