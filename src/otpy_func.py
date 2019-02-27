@@ -50,7 +50,7 @@ class Store:
     def greet():
         print("Hello there, {0}! My name is Jack, and this here's my General Store!".format(name))
         print("")
-        print("I see you've got {0} to spend, let's get down to business!".format(money))
+        print("I see you've got ${0} to spend, let's get down to business!".format(money))
         print("")
     def buy():
         print(txtc_wb + bgc_wb + """Your Cart:
