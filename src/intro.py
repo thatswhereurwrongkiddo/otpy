@@ -23,12 +23,11 @@
 #intro.py
 #provides story intro
 
-from otpy_func import *
+from otpy_func_premain import *
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 from sql_names import *
 
 clearscreen()
-vernotice()
 
 
 print(txtc_wb + bgc_wb + """Welcome to the Oregon Trail!
@@ -45,8 +44,7 @@ You started off with $1000, bought a wagon for $200, now you have $800
 left to spend.
 """)
 input("Press ENTER to visit the General Store...")
-
-clearscreen()
 print(resetc_wb)
-print("Store coming in v0.0.5")
-input("Press ENTER to continue...")
+
+import os
+os.system("python main.py")

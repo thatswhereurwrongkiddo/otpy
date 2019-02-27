@@ -23,12 +23,11 @@
 #nameset.py
 #set up names for your wagon party members
 
-from otpy_func import clearscreen, vernotice
+from otpy_func_premain import clearscreen, vernotice
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 import sqlite3 as sql
 
 clearscreen()
-vernotice()
 
 print(txtc_wb + bgc_wb + "Type the names of the members of your wagon party:")
 print("                                                  ")

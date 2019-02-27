@@ -27,17 +27,10 @@
 import colorama
 from __init__ import ver, title
 import os
-from otpy_func import clearscreen, checksys
+from otpy_func_premain import clearscreen, checksys
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 
 clearscreen()
-checksys()
-
-#print version notice
-print("(otpy v{0} PRE-ALPHA TEST VERSION)".format(ver))
-print("""
-
-""")
 
 #initialize colorama settings
 

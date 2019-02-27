@@ -27,7 +27,7 @@
 #import version variable from __init__ file and os module
 from __init__ import ver, title
 import os
-from otpy_func import checksys
+from otpy_func_premain import checksys
 
 os.system("cd .. && start clearcache.bat")
 

@@ -20,15 +20,14 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.5
-#changelog:
-## added main.py
-    ## added general store
+#main.py
+#the main file where all the magic happens
 
+from otpy_func import *
+from color_storage import txtc_wb, bgc_wb, resetc_wb
 
-ver = "0.0.5"
-title = "otpy v{0}".format(ver)
-
-#otpy is a simulator of the popular 1974 game "The Oregon Trail",
-#developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
-#published by the Minnesota Educational Computing Consortium (MECC).
+Player.profile()
+clearscreen()
+print(txtc_wb + bgc_wb)
+Store.greet()
+Store.buy()

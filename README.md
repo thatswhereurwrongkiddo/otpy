@@ -1,4 +1,4 @@
-# otpy v0.0.4
+# otpy v0.0.5
 
 otpy is a python rewrite of the popular 1974 game "The Oregon Trail",
 developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
