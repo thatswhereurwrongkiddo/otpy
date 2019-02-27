@@ -25,7 +25,7 @@ def vernotice():
 ################################################################################
 from sql_names import mm1
 name = 0
-money = 0
+money = 800
 yokes = 0
 
 oxen = 0
@@ -39,14 +39,13 @@ spare_parts = 0
 class Player:
     def profile():
         global name
-        global money
         name = mm1
-        money = 800
     def wait_for_alpha():
         print(resetc_wb)
         clearscreen()
         print(txtc_wb + bgc_wb + "You can play the rest of the game when the alpha version 0.1 is released!")
 class Store:
+    global money
     def greet():
         print("Hello there, {0}! My name is Jack, and this here's my General Store!".format(name))
         print("")
@@ -133,8 +132,10 @@ Spare Parts ${3} (Boxes = {6})
         if pay_now.lower() == "yes":
             global money
             money = money - total
-            Player.wait_for_beta()
+            Player.wait_for_alpha()
         if pay_now.lower() == "no":
             print(resetc_wb)
             clearscreen()
             Store.buy()
+class Trip:
+    pass
