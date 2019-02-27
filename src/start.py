@@ -20,16 +20,15 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.1
-#changelog:
-#added start.py and coded intro screen
+#start.py
+#the initial program the user encounters when running otpy for
+#the first time
 
-ver = "0.0.1"
+from __init__ import ver
 
-#otpy is a simulator of the popular 1974 game "The Oregon Trail",
-#developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
-#published by the Minnesota Educational Computing Consortium (MECC).
-
-#development will begin after this initial commit
-#much love
-#<3
+print("Welcome to otpy v{0}: The (Python) Oregon Trail!".format(ver))
+input()
+print("You've died of dysentery.")
+input()
+print("Game Over, Thanks for playing!")
+input("Press ENTER to EXIT...")
