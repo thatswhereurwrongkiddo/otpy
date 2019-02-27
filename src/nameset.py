@@ -20,46 +20,54 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#init_menu.py
-#initial menu for otpy program
+#nameset.py
+#set up names for your wagon party members
 
-#import colorama module for menu
-import colorama
-from __init__ import ver, title
-import os
-from otpy_func import clearscreen, checksys
+from otpy_func import clearscreen, vernotice
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 
 clearscreen()
-checksys()
+vernotice()
 
-#print version notice
-print("(otpy v{0} PRE-ALPHA TEST VERSION)".format(ver))
-print("""
+members = input(txtc_wb + bgc_wb + "How many members are in your wagon party?: ")
 
-""")
+class Members:
+    def three():
+        member1 = input("1 (You): ")
+        member2 = input("2: ")
+        member3 = input("3: ")
+    def four():
+        member1 = input("1 (You): ")
+        member2 = input("2: ")
+        member3 = input("3: ")
+        member4 = input("4: ")
+    def five():
+        member1 = input("1 (You): ")
+        member2 = input("2: ")
+        member3 = input("3: ")
+        member4 = input("4: ")
+        member5 = input("5: ")
+    def six():
+        member1 = input("1 (You): ")
+        member2 = input("2: ")
+        member3 = input("3: ")
+        member4 = input("4: ")
+        member5 = input("5: ")
+        member6 = input("6: ")
 
-#initialize colorama settings
-
-
-#print main menu
-print(txtc_wb + bgc_wb + "otpy Main Menu:")
-print("               ")
-print("Your options are as follows:")
-print("                            ")
-print("1. Travel The Trail         ")
-print("2. End                      ")
-print("                            ")
-u_ch = input("And you choose?: ")
-print(resetc_wb)
-
-#if/else statement for player selection
-import time
-if u_ch == "1" or u_ch.lower() == "travel" or u_ch.lower() == "travel the trail":
-    os.system("python nameset.py")
-elif u_ch == "2" or u_ch.lower() == "end":
-    pass
+if members == "3":
+    Members.three()
+elif members == "4":
+    Members.four()
+elif members == "5":
+    Members.five()
+elif members == "6":
+    Members.six()
 else:
-    print("Unrecognized input, try again")
+    import time
+    print("Invalid Response")
+    print("Try again")
     time.sleep(0.5)
-    os.system("python init_menu.py")
+    import os
+    print(resetc_wb)
+    os.system("python nameset.py")

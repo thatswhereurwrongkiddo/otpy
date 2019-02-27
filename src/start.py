@@ -25,9 +25,11 @@
 #the first time
 
 #import version variable from __init__ file and os module
-from __init__ import ver
+from __init__ import ver, title
 import os
+from otpy_func import checksys
 
+checksys()
 #define functions
 def pause():
     input("Press ENTER to continue...")
@@ -38,4 +40,4 @@ print()
 pause()
 
 #start batch switch file
-os.system("cd batch && start start_py.bat")
+os.system("python init_menu.py")

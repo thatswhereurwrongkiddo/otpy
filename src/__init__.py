@@ -20,15 +20,15 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.2
+#otpy v0.0.3
 #changelog:
-## added batch switch files
-## added init_menu
-## added colorama module requirement
-## added color_storage
-## updated README.md
+## deleted batch switches
+## added clearcache.bat
+## added nameset
+## added otpy_func
 
-ver = "0.0.2"
+ver = "0.0.3"
+title = "otpy v{0}".format(ver)
 
 #otpy is a simulator of the popular 1974 game "The Oregon Trail",
 #developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
