@@ -24,11 +24,18 @@
 #the initial program the user encounters when running otpy for
 #the first time
 
+#import version variable from __init__ file and os module
 from __init__ import ver
+import os
 
+#define functions
+def pause():
+    input("Press ENTER to continue...")
+
+#greet user
 print("Welcome to otpy v{0}: The (Python) Oregon Trail!".format(ver))
-input()
-print("You've died of dysentery.")
-input()
-print("Game Over, Thanks for playing!")
-input("Press ENTER to EXIT...")
+print()
+pause()
+
+#start batch switch file
+os.system("cd batch && start start_py.bat")

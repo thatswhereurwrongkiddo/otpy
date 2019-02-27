@@ -20,16 +20,44 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.2
-#changelog:
-## added batch switch files
-## added init_menu
-## added colorama module requirement
-## added color_storage
-## updated README.md
+#init_menu.py
+#initial menu for otpy program
 
-ver = "0.0.2"
+#import colorama module for menu
+import colorama
+from __init__ import ver
 
-#otpy is a simulator of the popular 1974 game "The Oregon Trail",
-#developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
-#published by the Minnesota Educational Computing Consortium (MECC).
+#print version notice
+print("(otpy v{0} PRE-ALPHA TEST VERSION)".format(ver))
+print("""
+
+""")
+
+#initialize colorama settings
+
+
+#print main menu
+from color_storage import txtc_wb, bgc_wb, resetc_wb
+print(txtc_wb + bgc_wb + "otpy Main Menu:")
+print("               ")
+print("Your options are as follows:")
+print("                            ")
+print("1. Travel The Trail         ")
+print("2. End                      ")
+print("                            ")
+u_ch = input("And you choose?: ")
+print(resetc_wb)
+
+#if/else statement for player selection
+import os
+import time
+if u_ch == "1" or u_ch.lower() == "travel" or u_ch.lower() == "travel the trail":
+    print("Option not yet available")
+    print("Further develeopment in version 0.0.3")
+    input("")
+elif u_ch == "2" or u_ch.lower() == "end":
+    pass
+else:
+    print("Unrecognized input, try again")
+    time.sleep(0.5)
+    os.system("cd batch && start start_py.bat")
