@@ -1,4 +1,4 @@
-/ otpy v0.0.5_b2 (TESTING REPO)
+# otpy v0.0.5_b2 (TESTING REPO)
 
 otpy is a python rewrite of the popular 1974 game "The Oregon Trail",
 developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
