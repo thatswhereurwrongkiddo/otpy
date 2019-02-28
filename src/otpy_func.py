@@ -189,8 +189,13 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
         p_choice = input("What would you like to do?: ")
         if int(p_choice) == 1:
             miles_t = miles_t + 10
-            date_c[1] = int(date_c[1]) + 1
-            HitTheTrail.menu()
+            if int(date_c[1]) < 31:
+                date_c[1] = int(date_c[1]) + 1
+                HitTheTrail.menu()
+            elif int(date_c[1]) >= 31:
+                date_c[0] = int(date_c[0]) + 1
+                date_c[1] = 1
+                HitTheTrail.menu()
         elif int(p_choice) == 2:
             HitTheTrail.exit()
         else:
