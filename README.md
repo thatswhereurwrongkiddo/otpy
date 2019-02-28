@@ -1,4 +1,4 @@
-# otpy v0.0.5_b2 (TESTING REPO)
+/ otpy v0.0.5_b2 (TESTING REPO)
 
 otpy is a python rewrite of the popular 1974 game "The Oregon Trail",
 developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
@@ -13,14 +13,14 @@ make exactly the next big thing here. otpy currently only runs on Windows due to
 
 //FILES IN THIS REPOSITORY SHOULD ONLY BE USED BY DEVELOPERS AND COLLABORATORS//
 
-################
-# KNOWN ISSUES #
-################
-## ISSUE NUMBER | 001
-## DESCRIPTION | there is a loop in HitTheTrail.exit() that brings you back to Store.checkout()
-## REASON | UNKNOWN
-## BUGFIX STATUS | IN PROGRESS
-## BUGFIX DEV | thatswhereurwrongkiddo
+////////////////
+/ KNOWN ISSUES /
+////////////////
+// ISSUE NUMBER | 001
+// DESCRIPTION | there is a loop in HitTheTrail.exit() that brings you back to Store.checkout()
+// REASON | UNKNOWN
+// BUGFIX STATUS | IN PROGRESS
+// BUGFIX DEV | thatswhereurwrongkiddo
 
 ---
 How to run otpy:
