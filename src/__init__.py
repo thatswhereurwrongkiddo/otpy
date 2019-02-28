@@ -20,13 +20,13 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.5
+#otpy v0.0.5_b1
 #changelog:
-## added main.py
-    ## added general store
+## added semi-functional travel menu
+## added inavlid response feature (not fully implimented)
 
 
-ver = "0.0.5"
+ver = "0.0.5_b1"
 title = "otpy v{0}".format(ver)
 
 #otpy is a simulator of the popular 1974 game "The Oregon Trail",

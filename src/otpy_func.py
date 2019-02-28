@@ -1,3 +1,29 @@
+#MIT License
+#
+#Copyright (c) 2019 thatswhereurwrongkiddo
+#
+#Permission is hereby granted, free of charge, to any person obtaining a copy
+#of this software and associated documentation files (the "Software"), to deal
+#in the Software without restriction, including without limitation the rights
+#to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#copies of the Software, and to permit persons to whom the Software is
+#furnished to do so, subject to the following conditions:
+#
+#The above copyright notice and this permission notice shall be included in all
+#copies or substantial portions of the Software.
+#
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+#SOFTWARE.
+
+#otpy_func.py
+#where everything is really stored for the main game
+#main.py is just a user-facing middleman
+
 import os
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 
@@ -36,6 +62,13 @@ ammo = 0
 spare_parts_price = 0
 spare_parts = 0
 
+miles_t = 0
+date_c = ["3", "1", "1856"]
+
+class GameMods:
+    def unrecognized():
+        print("That is an unrecognized choice.")
+        input("Please Try Again...")
 class Player:
     def profile():
         global name
@@ -133,8 +166,39 @@ Spare Parts ${3} (Boxes = {6})
         if pay_now.lower() == "yes":
             global money
             money = money - total
-            Player.wait_for_beta()
+            print(resetc_wb)
+            HitTheTrail.menu()
         if pay_now.lower() == "no":
             print(resetc_wb)
             clearscreen()
             Store.buy()
+class HitTheTrail:
+    import random
+    def menu():
+        global miles_t
+        global date_c
+        print(resetc_wb)
+        clearscreen()
+        r_date = "{0}/{1}/{2}".format(date_c[0], date_c[1], date_c[2])
+        print(txtc_wb + bgc_wb + """Menu:
+Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
+------------
+1. Travel
+2. Exit
+""".format(miles_t, money, r_date))
+        p_choice = input("What would you like to do?: ")
+        if int(p_choice) == 1:
+            miles_t = miles_t + 10
+            date_c[1] = int(date_c[1]) + 1
+            HitTheTrail.menu()
+        elif int(p_choice) == 2:
+            HitTheTrail.exit()
+        else:
+            GameMods.unrecognized()
+            HitTheTrail.menu()
+    def exit():
+        print(resetc_wb)
+        clearscreen()
+        print(txtc_wb + bgc_wb + "Thanks for playing!")
+        print("Check out the source code at:")
+        print("https://github.com/thatswhereurwrongkiddo/otpy")
