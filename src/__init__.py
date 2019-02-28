@@ -20,13 +20,22 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.5_b1
+#otpy v0.0.5_b2
 #changelog:
-## added semi-functional travel menu
-## added inavlid response feature (not fully implimented)
+## added unrecognized input support loop to more inputs
+## added first "real" game end
+## changed daily travel rate from 10mi to 1000mi for current development's sake
+################
+# KNOWN ISSUES #
+################
+## ISSUE NUMBER | 001
+## DESCRIPTION | there is a loop in HitTheTrail.exit() that brings you back to Store.checkout()
+## REASON | UNKNOWN
+## BUGFIX STATUS | IN PROGRESS
+## BUGFIX DEV | thatswhereurwrongkiddo
 
 
-ver = "0.0.5_b1"
+ver = "0.0.5_b2"
 title = "otpy v{0}".format(ver)
 
 #otpy is a simulator of the popular 1974 game "The Oregon Trail",

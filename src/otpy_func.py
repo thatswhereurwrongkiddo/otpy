@@ -63,7 +63,10 @@ spare_parts_price = 0
 spare_parts = 0
 
 miles_t = 0
-date_c = ["3", "1", "1856"]
+
+months_with_31 = [3, 5, 7, 8, 10, 12]
+months_with_30 = [4, 6, 9, 11]
+date_c = [3, 1, 1856]
 
 class GameMods:
     def unrecognized():
@@ -103,6 +106,9 @@ Spare Parts ${3} (Boxes = {6})
             Store.buy_parts()
         if choice.lower() == "checkout":
             Store.checkout()
+        else:
+            GameMods.unrecognized()
+            Store.buy()
     def buy_oxen():
         print(resetc_wb)
         clearscreen()
@@ -161,7 +167,7 @@ Spare Parts ${3} (Boxes = {6})
         global ammo_price
         global spare_parts_price
         total = oxen + food + ammo_price + spare_parts_price
-        print("Your total bill is: {0}".format(total))
+        print(bgc_wb + txtc_wb + "Your total bill is: {0}".format(total))
         pay_now = input("Do you wish to pay now? (yes/no): ")
         if pay_now.lower() == "yes":
             global money
@@ -172,6 +178,11 @@ Spare Parts ${3} (Boxes = {6})
             print(resetc_wb)
             clearscreen()
             Store.buy()
+        else:
+            GameMods.unrecognized()
+            print(resetc_wb)
+            clearscreen()
+            Store.checkout()
 class HitTheTrail:
     import random
     def menu():
@@ -186,24 +197,41 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
 1. Travel
 2. Exit
 """.format(miles_t, money, r_date))
-        p_choice = input("What would you like to do?: ")
-        if int(p_choice) == 1:
-            miles_t = miles_t + 10
-            if int(date_c[1]) < 31:
-                date_c[1] = int(date_c[1]) + 1
+        if miles_t < 2000:
+            p_choice = input("What would you like to do?: ")
+            if int(p_choice) == 1:
+                miles_t = miles_t + 1000
+                if date_c[0] in months_with_31 and int(date_c[1]) < 31:
+                    date_c[1] = int(date_c[1]) + 1
+                    HitTheTrail.menu()
+                elif date_c[0] in months_with_31 and int(date_c[1]) >= 31:
+                    date_c[0] = int(date_c[0]) + 1
+                    date_c[1] = 1
+                    HitTheTrail.menu()
+                if date_c[0] in months_with_30 and int(date_c[1]) < 30:
+                    date_c[1] = int(date_c[1]) + 1
+                    HitTheTrail.menu()
+                elif date_c[0] in months_with_30 and int(date_c[1]) >= 30:
+                    date_c[0] = int(date_c[0]) + 1
+                    date_c[1] = 1
+                    HitTheTrail.menu()
+            elif int(p_choice) == 2:
+                HitTheTrail.exit()
+            else:
+                GameMods.unrecognized()
                 HitTheTrail.menu()
-            elif int(date_c[1]) >= 31:
-                date_c[0] = int(date_c[0]) + 1
-                date_c[1] = 1
-                HitTheTrail.menu()
-        elif int(p_choice) == 2:
-            HitTheTrail.exit()
         else:
-            GameMods.unrecognized()
-            HitTheTrail.menu()
+            HitTheTrail.OG_check()
     def exit():
         print(resetc_wb)
         clearscreen()
         print(txtc_wb + bgc_wb + "Thanks for playing!")
         print("Check out the source code at:")
         print("https://github.com/thatswhereurwrongkiddo/otpy")
+    def OG_check():
+        if miles_t >= 2000:
+            print("You made it to Oregon! Woo-Hoo!")
+            input("Press ENTER to continue...")
+            HitTheTrail.exit()
+        else:
+            pass
