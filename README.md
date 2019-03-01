@@ -26,11 +26,11 @@ make exactly the next big thing here. otpy currently only runs on Windows due to
 // DESCRIPTION | there is a loop in HitTheTrail.exit() that
 brings you back to Store.checkout()
 
-// REASON | UNKNOWN
+// REASON | caused by improperly formatted if/else statement in Store.checkout(), issue resolved
 
 // BUGFIX STATUS | FIXED 3.1.19
 
-// FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit()
+// FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit(), and fixing Store.checkout() if/else statement
 
 // BUGFIX DEV | thatswhereurwrongkiddo
 

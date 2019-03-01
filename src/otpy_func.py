@@ -28,6 +28,7 @@ import os
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 
 def clearscreen():
+    print(resetc_wb)
     os.system('cls' if os.name == 'nt' else 'clear')
     vernotice()
 def checksys():
@@ -166,15 +167,21 @@ Spare Parts ${3} (Boxes = {6})
         global food
         global ammo_price
         global spare_parts_price
+        global money
         total = oxen + food + ammo_price + spare_parts_price
         print(bgc_wb + txtc_wb + "Your total bill is: {0}".format(total))
         pay_now = input("Do you wish to pay now? (yes/no): ")
+        if total > money:
+            clearscreen()
+            print(bgc_wb + txtc_wb + "Sorry, you do not have enough funds for this purchase")
+            input("Press ENTER to continue...")
+            pay_now = "no"
         if pay_now.lower() == "yes":
-            global money
+            #global money
             money = money - total
             print(resetc_wb)
-            HitTheTrail.menu()
-        if pay_now.lower() == "no":
+            #HitTheTrail.menu()
+        elif pay_now.lower() == "no":
             print(resetc_wb)
             clearscreen()
             Store.buy()
