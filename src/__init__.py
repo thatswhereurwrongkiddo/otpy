@@ -31,7 +31,7 @@
 ## ISSUE NUMBER | 001
 ## DESCRIPTION | there is a loop in HitTheTrail.exit() that brings you back to Store.checkout()
 ## REASON | UNKNOWN
-## BUGFIX STATUS | IN PROGRESS
+## BUGFIX STATUS | FIXED 3.1.19
 ## BUGFIX DEV | thatswhereurwrongkiddo
 
 

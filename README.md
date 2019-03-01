@@ -28,7 +28,9 @@ brings you back to Store.checkout()
 
 // REASON | UNKNOWN
 
-// BUGFIX STATUS | IN PROGRESS
+// BUGFIX STATUS | FIXED 3.1.19
+
+// FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit()
 
 // BUGFIX DEV | thatswhereurwrongkiddo
 

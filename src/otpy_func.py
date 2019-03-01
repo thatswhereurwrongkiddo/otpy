@@ -49,7 +49,7 @@ def vernotice():
 ################################################################################
 ## functions for main.py #######################################################
 ################################################################################
-from sql_names import mm1
+from sql_names import mm1, mm2, mm3, mm4, mm5, mm6
 name = 0
 money = 0
 yokes = 0
@@ -195,7 +195,10 @@ class HitTheTrail:
 Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
 ------------
 1. Travel
-2. Exit
+2. Check supplies
+3. Hunt
+4. Rest
+5. Exit
 """.format(miles_t, money, r_date))
         if miles_t < 2000:
             p_choice = input("What would you like to do?: ")
@@ -216,18 +219,33 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
                     date_c[1] = 1
                     HitTheTrail.menu()
             elif int(p_choice) == 2:
+                HitTheTrail.supplies()
+            elif int(p_choice) == 3:
+                HitTheTrail.hunt()
+            elif int(p_choice) == 4:
+                HitTheTrail.rest()
+            elif int(p_choice) == 5:
                 HitTheTrail.exit()
             else:
                 GameMods.unrecognized()
                 HitTheTrail.menu()
         else:
             HitTheTrail.OG_check()
+    def hunt():
+        HitTheTrail.notcoded()
+    def supplies():
+        HitTheTrail.notcoded()
+    def rest():
+        HitTheTrail.notcoded()
     def exit():
         print(resetc_wb)
         clearscreen()
         print(txtc_wb + bgc_wb + "Thanks for playing!")
         print("Check out the source code at:")
         print("https://github.com/thatswhereurwrongkiddo/otpy")
+        input("Press ENTER to continue...")
+        import sys
+        sys.exit()
     def OG_check():
         if miles_t >= 2000:
             print("You made it to Oregon! Woo-Hoo!")
@@ -235,3 +253,27 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
             HitTheTrail.exit()
         else:
             pass
+    def notcoded():
+        print(resetc_wb)
+        clearscreen()
+        print("""
+#####################################################
+##                      ERROR                      ##
+##                FEATURE NOT CODED                ##
+##                                                 ##
+##                     NOTICE:                     ##
+##                                                 ##
+##    THIS ERROR SHOULD ONLY EXIST IN TEST CODE    ##
+#####################################################
+        """)
+        print("")
+        print("OK, so, you found a feature I haven't coded yet.")
+        print("")
+        print("""If you see this message in master branch code (NOT testing/alpha-testing branch),
+please write a post in the issues tab on the otpy GitHub page, with the attempted feature that gave
+you the message and the version of otpy you are using""")
+        print("")
+        print("Otherwise, I'll probably implement this feature in anywhere from an hour to a week.")
+        print("")
+        input("Press ENTER to continue...")
+        HitTheTrail.menu()
