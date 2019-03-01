@@ -14,6 +14,34 @@ make exactly the next big thing here. otpy currently only runs on Windows due to
 //FILES IN THIS REPOSITORY SHOULD ONLY BE USED BY DEVELOPERS, TESTERS, AND COLLABORATORS//
 
 ---
+TO-DO LIST
+----
+- change name storage from temp program-generated sqlite database to python list
+
+  - PROGRESS: *not started*
+
+- add following features code in HitTheTrail.menu():
+
+  - Hunt
+
+    - PROGRESS: *not started*
+
+  - Rest
+
+    - PROGRESS: *not started*
+
+  - Check Supplies
+
+    - PROGRESS: *not started*
+
+- add calamities to HitTheTrail class
+
+  - PROGRESS: *not started*
+
+- create food usage system and hunger monitor
+
+  - PROGRESS: *not started*
+---
 
 ////////////////
 
