@@ -32,15 +32,15 @@ TO-DO LIST
 
   - Check Supplies
 
-    - PROGRESS: *working*
+    - PROGRESS: *finished*
 
 - add calamities to HitTheTrail class
 
   - PROGRESS: *not started*
 
-- create food usage system and hunger monitor
+- create food usage system and hunger/health monitor
 
-  - PROGRESS: *not started*
+  - PROGRESS: *working*
 ---
 
 ////////////////

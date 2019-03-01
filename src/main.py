@@ -29,6 +29,6 @@ from color_storage import txtc_wb, bgc_wb, resetc_wb
 Player.profile()
 clearscreen()
 print(txtc_wb + bgc_wb)
-#Store.greet()
-#Store.buy()
+Store.greet()
+Store.buy()
 HitTheTrail.menu()

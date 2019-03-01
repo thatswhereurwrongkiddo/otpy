@@ -210,7 +210,7 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
         if miles_t < 2000:
             p_choice = input("What would you like to do?: ")
             if int(p_choice) == 1:
-                miles_t = miles_t + 1000
+                miles_t = miles_t + 10
                 if date_c[0] in months_with_31 and int(date_c[1]) < 31:
                     date_c[1] = int(date_c[1]) + 1
                     HitTheTrail.menu()
@@ -239,7 +239,23 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
         else:
             HitTheTrail.OG_check()
     def supplies():
-        HitTheTrail.notcoded()
+        clearscreen()
+        global food_pounds
+        global money
+        global ammo
+        global yokes
+        global spare_parts
+        oxen_count = int(yokes) * 2
+        print(txtc_wb + bgc_wb + """
+Your Supplies:
+Food (lbs.): {0}
+Money: {1}
+Ammunition: {2}
+Oxen: {3}
+Boxes of Spare Parts: {4}
+        """.format(food_pounds, money, ammo, oxen_count, spare_parts))
+        input("Press ENTER to return to menu...")
+        HitTheTrail.menu()
     def rest():
         HitTheTrail.notcoded()
     def exit():
@@ -285,17 +301,22 @@ you the message and the version of otpy you are using""")
 class TrailHunting:
     def main():
         clearscreen()
-        print(txtc_wb + bgc_wb + "Time to go hunting out in the wild!")
-        print("You grab your rifle and set out in to the forest")
-        print("")
-        hunt_path = input("Do you take the *darker* path or the *lighter* path?: ")
-        if hunt_path == "darker":
-            TrailHunting.darker()
-        elif hunt_path == "lighter":
-            TrailHunting.lighter()
+        if ammo <= 0:
+            print(txtc_wb + bgc_wb + "Sorry partner, you don't have enough ammo to go hunting.")
+            input("Press ENTER to return to menu...")
+            HitTheTrail.menu()
         else:
-            GameMods.unrecognized()
-            TrailHunting.main()
+            print(txtc_wb + bgc_wb + "Time to go hunting out in the wild!")
+            print("You grab your rifle and set out in to the forest")
+            print("")
+            hunt_path = input("Do you take the *darker* path or the *lighter* path?: ")
+            if hunt_path == "darker":
+                TrailHunting.darker()
+            elif hunt_path == "lighter":
+                TrailHunting.lighter()
+            else:
+                GameMods.unrecognized()
+                TrailHunting.main()
     def darker():
         global food_pounds
         global ammo
