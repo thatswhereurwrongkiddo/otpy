@@ -22,9 +22,7 @@
 
 #otpy v0.0.5_b2
 #changelog:
-## added unrecognized input support loop to more inputs
-## added first "real" game end
-## changed daily travel rate from 10mi to 1000mi for current development's sake
+## changelog will be updated with 0.1 release
 ################
 # KNOWN ISSUES #
 ################

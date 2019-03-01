@@ -295,7 +295,7 @@ class TrailHunting:
             TrailHunting.lighter()
         else:
             GameMods.unrecognized()
-            HitTheTrail.hunt()
+            TrailHunting.main()
     def darker():
         global food_pounds
         global ammo
@@ -314,6 +314,20 @@ class TrailHunting:
             HitTheTrail.menu()
         else:
             GameMods.unrecognized()
-            HitTheTrail.hunt()
+            TrailHunting.darker()
     def lighter():
-        HitTheTrail.notcoded()
+        global food_pounds
+        global ammo
+        global date_c
+        print("You decide to take the lighter path, as that obviously makes more sense.")
+        print("You see a giant bear in the distance, and you pull out your rifle to shoot it.")
+        shoot = input("Type 'shoot' to shoot: ")
+        if shoot.lower() == "shoot":
+            ammo = ammo - 1
+            print("You hit it! The bear goes down, and now you have an extra 100 lbs. of food!")
+            input("Press ENTER to continue...")
+            food_pounds = food_pounds + 100
+            HitTheTrail.menu()
+        else:
+            GameMods.unrecognized()
+            TrailHunting.lighter()

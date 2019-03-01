@@ -24,7 +24,7 @@ TO-DO LIST
 
   - Hunt
 
-    - PROGRESS: *working*
+    - PROGRESS: *finished*
 
   - Rest
 
@@ -32,7 +32,7 @@ TO-DO LIST
 
   - Check Supplies
 
-    - PROGRESS: *not started*
+    - PROGRESS: *working*
 
 - add calamities to HitTheTrail class
 
