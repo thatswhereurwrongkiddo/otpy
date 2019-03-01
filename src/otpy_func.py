@@ -99,13 +99,13 @@ Spare Parts ${3} (Boxes = {6})
         choice = input("What would you like to buy? (Type 'checkout' when finished): ")
         if choice.lower() == "oxen":
             Store.buy_oxen()
-        if choice.lower() == "food":
+        elif choice.lower() == "food":
             Store.buy_food()
-        if choice.lower() == "ammo":
+        elif choice.lower() == "ammo":
             Store.buy_ammo()
-        if choice.lower() == "spare parts":
+        elif choice.lower() == "spare parts":
             Store.buy_parts()
-        if choice.lower() == "checkout":
+        elif choice.lower() == "checkout":
             Store.checkout()
         else:
             GameMods.unrecognized()
@@ -228,7 +228,7 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
             elif int(p_choice) == 2:
                 HitTheTrail.supplies()
             elif int(p_choice) == 3:
-                HitTheTrail.hunt()
+                TrailHunting.main()
             elif int(p_choice) == 4:
                 HitTheTrail.rest()
             elif int(p_choice) == 5:
@@ -238,8 +238,6 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
                 HitTheTrail.menu()
         else:
             HitTheTrail.OG_check()
-    def hunt():
-        HitTheTrail.notcoded()
     def supplies():
         HitTheTrail.notcoded()
     def rest():
@@ -284,3 +282,38 @@ you the message and the version of otpy you are using""")
         print("")
         input("Press ENTER to continue...")
         HitTheTrail.menu()
+class TrailHunting:
+    def main():
+        clearscreen()
+        print(txtc_wb + bgc_wb + "Time to go hunting out in the wild!")
+        print("You grab your rifle and set out in to the forest")
+        print("")
+        hunt_path = input("Do you take the *darker* path or the *lighter* path?: ")
+        if hunt_path == "darker":
+            TrailHunting.darker()
+        elif hunt_path == "lighter":
+            TrailHunting.lighter()
+        else:
+            GameMods.unrecognized()
+            HitTheTrail.hunt()
+    def darker():
+        global food_pounds
+        global ammo
+        global date_c
+        print("You walk through a dimly lit forest path you can barely see.")
+        print("You barely see a deer in the distance and aim to shoot at it.")
+        shoot = input("Type 'shoot' to shoot: ")
+        if shoot.lower() == "shoot":
+            ammo = ammo - 1
+            print("You miss and hit a tree.")
+            print("")
+            print("You decide to go back to the wagon and try again another day but you lose your way")
+            print("(1 day lost)")
+            input("Press ENTER to continue...")
+            date_c[1] = int(date_c[1]) + 1
+            HitTheTrail.menu()
+        else:
+            GameMods.unrecognized()
+            HitTheTrail.hunt()
+    def lighter():
+        HitTheTrail.notcoded()
