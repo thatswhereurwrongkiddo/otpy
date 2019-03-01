@@ -1,6 +1,6 @@
 @echo off
 
 cd src && rmdir /s /q __pycache__
-cd .. && rmdir /s /q -R tmp
+cd .. && rmdir /s /q tmp
 
 exit
