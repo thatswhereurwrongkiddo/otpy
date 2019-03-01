@@ -3,3 +3,4 @@ include:
   - python: python3.7
 install:
   - pip install colorama
+script: pytest
