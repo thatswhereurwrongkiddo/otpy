@@ -55,10 +55,12 @@ name = 0
 money = 0
 yokes = 0
 
+mm1_health = 0
 oxen = 0
 food = 0
 food_pounds = 0
 ammo_price = 0
+ammo_box = 0
 ammo = 0
 spare_parts_price = 0
 spare_parts = 0
@@ -77,14 +79,13 @@ class Player:
     def profile():
         global name
         global money
+        global mm1_health
         name = mm1
         money = 800
-    def wait_for_alpha():
-        print(resetc_wb)
-        clearscreen()
-        print(txtc_wb + bgc_wb + "You can play the rest of the game when the alpha version 0.1 is released!")
+        mm1_health = "Good"
 class Store:
     def greet():
+        Player.profile()
         print("Hello there, {0}! My name is Jack, and this here's my General Store!".format(name))
         print("")
         print("I see you've got ${0} to spend, let's get down to business!".format(money))
@@ -95,7 +96,7 @@ Oxen ${0} (Yokes = {4})
 Food ${1} ({7} lbs.)
 Ammo ${2} (Boxes = {5})
 Spare Parts ${3} (Boxes = {6})
-""".format(oxen, food, ammo_price, spare_parts_price, yokes, ammo, spare_parts, food_pounds))
+""".format(oxen, food, ammo_price, spare_parts_price, yokes, ammo_box, spare_parts, food_pounds))
         choice = input("What would you like to buy? (Type 'checkout' when finished): ")
         if choice.lower() == "oxen":
             Store.buy_oxen()
@@ -139,13 +140,15 @@ Spare Parts ${3} (Boxes = {6})
     def buy_ammo():
         global ammo
         global ammo_price
+        global ammo_box
         print(resetc_wb)
         clearscreen()
         print(txtc_wb + bgc_wb + "Each of my Grade A ammo boxes holds 20 bullets")
         print("and each box costs $2.")
         print("")
-        ammo = input("How many boxes do you want to buy?: ")
-        ammo_price = int(ammo) * 2
+        ammo_box = input("How many boxes do you want to buy?: ")
+        ammo_price = int(ammo_box) * 2
+        ammo = int(ammo_box) * 20
         print(resetc_wb)
         clearscreen()
         Store.buy()
@@ -193,38 +196,25 @@ Spare Parts ${3} (Boxes = {6})
 class HitTheTrail:
     import random
     def menu():
+        global mm1_health
         global miles_t
         global date_c
         print(resetc_wb)
         clearscreen()
         r_date = "{0}/{1}/{2}".format(date_c[0], date_c[1], date_c[2])
         print(txtc_wb + bgc_wb + """Menu:
-Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
+Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2} | Health: {3}
 ------------
 1. Travel
 2. Check supplies
 3. Hunt
 4. Rest
 5. Exit
-""".format(miles_t, money, r_date))
+""".format(miles_t, money, r_date, mm1_health))
         if miles_t < 2000:
             p_choice = input("What would you like to do?: ")
             if int(p_choice) == 1:
-                miles_t = miles_t + 10
-                if date_c[0] in months_with_31 and int(date_c[1]) < 31:
-                    date_c[1] = int(date_c[1]) + 1
-                    HitTheTrail.menu()
-                elif date_c[0] in months_with_31 and int(date_c[1]) >= 31:
-                    date_c[0] = int(date_c[0]) + 1
-                    date_c[1] = 1
-                    HitTheTrail.menu()
-                if date_c[0] in months_with_30 and int(date_c[1]) < 30:
-                    date_c[1] = int(date_c[1]) + 1
-                    HitTheTrail.menu()
-                elif date_c[0] in months_with_30 and int(date_c[1]) >= 30:
-                    date_c[0] = int(date_c[0]) + 1
-                    date_c[1] = 1
-                    HitTheTrail.menu()
+                HitTheTrail.travel()
             elif int(p_choice) == 2:
                 HitTheTrail.supplies()
             elif int(p_choice) == 3:
@@ -233,11 +223,32 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2}
                 HitTheTrail.rest()
             elif int(p_choice) == 5:
                 HitTheTrail.exit()
+            elif int(p_choice) == 6:
+                HitTheTrail.health_sys_checker()
             else:
                 GameMods.unrecognized()
                 HitTheTrail.menu()
         else:
             HitTheTrail.OG_check()
+    def travel():
+        global miles_t
+        HitTheTrail.food_management()
+        HitTheTrail.health_sys()
+        miles_t = miles_t + 10
+        if date_c[0] in months_with_31 and int(date_c[1]) < 31:
+            date_c[1] = int(date_c[1]) + 1
+            HitTheTrail.menu()
+        elif date_c[0] in months_with_31 and int(date_c[1]) >= 31:
+            date_c[0] = int(date_c[0]) + 1
+            date_c[1] = 1
+            HitTheTrail.menu()
+        if date_c[0] in months_with_30 and int(date_c[1]) < 30:
+            date_c[1] = int(date_c[1]) + 1
+            HitTheTrail.menu()
+        elif date_c[0] in months_with_30 and int(date_c[1]) >= 30:
+            date_c[0] = int(date_c[0]) + 1
+            date_c[1] = 1
+            HitTheTrail.menu()
     def supplies():
         clearscreen()
         global food_pounds
@@ -298,6 +309,55 @@ you the message and the version of otpy you are using""")
         print("")
         input("Press ENTER to continue...")
         HitTheTrail.menu()
+    def food_management():
+        global food_pounds
+        food_pounds = int(food_pounds)
+        if food_pounds >= 10:
+            food_pounds = food_pounds - 10
+        elif food_pounds == 0:
+            pass
+        else:
+            food_pounds = food_pounds - food_pounds
+    def health_sys():
+        global mm1_health
+        global food_pounds
+
+        if food_pounds > 50:
+            mm1_health = "Good"
+        if 50 > food_pounds > 10:
+            mm1_health = "Fair"
+        if food_pounds < 10:
+            mm1_health = "Poor"
+    def health_sys_checker():
+        import time
+        import sys
+        global food_pounds
+        global mm1_health
+
+        print("Welcome to the health_sys() function checker for otpy.")
+        print()
+        print("Testing on > 50 lbs. of food...")
+        time.sleep(1)
+        food_pounds = 100
+        HitTheTrail.health_sys()
+        health_100 = mm1_health
+        print("Done!")
+        print("Testing on 11-50 lbs. of food...")
+        time.sleep(1)
+        food_pounds = 30
+        HitTheTrail.health_sys()
+        health_30 = mm1_health
+        print("Done!")
+        print("Testing on < 10 lbs. of food...")
+        food_pounds = 0
+        HitTheTrail.health_sys()
+        health_0 = mm1_health
+        print("Done!")
+        print("First Test: {0} (should be 'Good')".format(health_100))
+        print("Second Test: {0} (should be 'Fair')".format(health_30))
+        print("Third Test: {0} (should be 'Poor')".format(health_0))
+        input("Press ENTER to exit...")
+        sys.exit(0)
 class TrailHunting:
     def main():
         clearscreen()
@@ -352,3 +412,6 @@ class TrailHunting:
         else:
             GameMods.unrecognized()
             TrailHunting.lighter()
+class Calamities:
+    def __init__():
+        pass

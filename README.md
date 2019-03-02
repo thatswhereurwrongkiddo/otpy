@@ -28,7 +28,7 @@ TO-DO LIST
 
   - Rest
 
-    - PROGRESS: *not started*
+    - PROGRESS: *working (on health monitor)*
 
   - Check Supplies
 
@@ -40,7 +40,7 @@ TO-DO LIST
 
 - create food usage system and hunger/health monitor
 
-  - PROGRESS: *working*
+  - PROGRESS: *finished (partly)*
 ---
 
 ////////////////
