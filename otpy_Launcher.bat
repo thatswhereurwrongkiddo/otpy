@@ -1,4 +1,4 @@
 @echo off
-cd src && python start.py
+cd src && python -B start.py
 
 exit

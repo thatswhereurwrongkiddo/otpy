@@ -23,11 +23,14 @@
 #main.py
 #the main file where all the magic happens
 
+
 from otpy_func import *
 from color_storage import txtc_wb, bgc_wb, resetc_wb
 
 clearscreen()
 print(txtc_wb + bgc_wb)
+NameChoice.whiloop()
+intro()
 Store.greet()
 Store.buy()
 HitTheTrail.menu()

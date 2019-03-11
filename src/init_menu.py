@@ -49,7 +49,7 @@ print(resetc_wb)
 #if/else statement for player selection
 import time
 if u_ch == "1" or u_ch.lower() == "travel" or u_ch.lower() == "travel the trail":
-    os.system("python nameset.py")
+    os.system("python -B main.py")
 elif u_ch == "2" or u_ch.lower() == "end":
     pass
 else:

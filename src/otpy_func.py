@@ -50,10 +50,85 @@ def vernotice():
 ################################################################################
 ## functions for main.py #######################################################
 ################################################################################
-from sql_names import mm1, mm2, mm3, mm4, mm5, mm6
+
+class NameChoice:
+    def ncifel():
+        global names
+        global names_amount
+        global n_choice
+        if n_choice.lower() == "" or n_choice.lower() == " ":
+                print("Invalid name choice.")
+                print()
+                print("Names need to be at least one character long.")
+                input("Press ENTER to continue...")
+                clearscreen()
+        else:
+                names.append(n_choice)
+                names_amount = names_amount + 1
+    def whiloop():
+        global names
+        global names_amount
+        global n_choice
+        while names_amount < 6:
+            nap1 = names_amount + 1
+            if names_amount == 0:
+                n_choice = input(txtc_wb + bgc_wb + "Type your name: ")
+                NameChoice.ncifel()
+            elif names_amount == 1:
+                n_choice = input(txtc_wb + bgc_wb + "Type the name of the 2nd member of your wagon: ")
+                NameChoice.ncifel()
+            elif names_amount == 2:
+                n_choice = input(txtc_wb + bgc_wb + "Type the name of the 3rd member of your wagon: ")
+                NameChoice.ncifel()
+            else:
+                n_choice = input(txtc_wb + bgc_wb + "Type the name of the {0}th member of your wagon: ".format(nap1))
+                NameChoice.ncifel()
+
+def intro():
+    global names
+    global mm1
+    global mm2
+    global mm3
+    global mm4
+    global mm5
+    global mm6
+    mm1 = names[0]
+    mm2 = names[1]
+    mm3 = names[2]
+    mm4 = names[3]
+    mm5 = names[4]
+    mm6 = names[5]
+    clearscreen()
+    print(txtc_wb + bgc_wb + """Welcome to the Oregon Trail!
+    The year is 1847
+    By your side, you, {0}, have your faithful companions:
+    {1}
+    {2}
+    {3}
+    {4}
+    {5}""".format(mm1, mm2, mm3, mm4, mm5, mm6))
+    print("")
+    print("""Your journey to Oregon begins in Independence, MO
+    You started off with $1000, bought a wagon for $200, now you have $800
+    left to spend.
+    """)
+    input("Press ENTER to visit the General Store...")
+    print(resetc_wb)
+    clearscreen()
+
+names = []
+names_amount = 0
+
 name = 0
 money = 0
 yokes = 0
+
+global mm1
+global mm2
+global mm3
+global mm4
+global mm5
+global mm6
 
 mm1_health = 0
 oxen = 0
@@ -86,17 +161,20 @@ class Player:
 class Store:
     def greet():
         Player.profile()
-        print("Hello there, {0}! My name is Jack, and this here's my General Store!".format(name))
+        print(txtc_wb + bgc_wb + "Hello there, {0}! My name is Jack, and this here's my General Store!".format(name))
         print("")
-        print("I see you've got ${0} to spend, let's get down to business!".format(money))
+        print("I see you've got ${0} left to spend, let's get down to business!".format(money))
         print("")
     def buy():
+        global total
+        total = oxen + food + ammo_price + spare_parts_price
         print(txtc_wb + bgc_wb + """Your Cart:
-Oxen ${0} (Yokes = {4})
-Food ${1} ({7} lbs.)
-Ammo ${2} (Boxes = {5})
-Spare Parts ${3} (Boxes = {6})
-""".format(oxen, food, ammo_price, spare_parts_price, yokes, ammo_box, spare_parts, food_pounds))
+Oxen: ${0} (Yokes = {4})
+Food: ${1} ({7} lbs.)
+Ammo: ${2} (Boxes = {5})
+Spare Parts: ${3} (Boxes = {6})
+Total: ${8}
+""".format(oxen, food, ammo_price, spare_parts_price, yokes, ammo_box, spare_parts, food_pounds, total))
         choice = input("What would you like to buy? (Type 'checkout' when finished): ")
         if choice.lower() == "oxen":
             Store.buy_oxen()
@@ -171,7 +249,7 @@ Spare Parts ${3} (Boxes = {6})
         global ammo_price
         global spare_parts_price
         global money
-        total = oxen + food + ammo_price + spare_parts_price
+        global total
         print(bgc_wb + txtc_wb + "Your total bill is: {0}".format(total))
         pay_now = input("Do you wish to pay now? (yes/no): ")
         if total > money:

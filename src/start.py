@@ -41,5 +41,5 @@ print("Welcome to otpy v{0}: The (Python) Oregon Trail!".format(ver))
 print()
 pause()
 
-#start batch switch file
-os.system("python init_menu.py")
+#open menu
+os.system("python -B init_menu.py")
