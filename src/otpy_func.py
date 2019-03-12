@@ -215,6 +215,8 @@ Total: ${8}
             #global money
             money = money - total
             print(resetc_wb)
+            global days_norest
+            days_norest = 0
             #HitTheTrail.menu()
         elif pay_now.lower() == "no":
             print(resetc_wb)
@@ -264,8 +266,10 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2} | Health: {3
             HitTheTrail.OG_check()
     def travel():
         global miles_t
+        global days_norest
+        HealthMonitor.start()
+        days_norest = days_norest + 1
         HitTheTrail.food_management()
-        HitTheTrail.health_sys()
         miles_t = miles_t + 10
         if date_c[0] in months_with_31 and int(date_c[1]) < 31:
             date_c[1] = int(date_c[1]) + 1
@@ -300,7 +304,13 @@ Boxes of Spare Parts: {4}
         input("Press ENTER to return to menu...")
         HitTheTrail.menu()
     def rest():
-        HitTheTrail.notcoded()
+        global days_norest
+        clearscreen()
+        days_norest = 0
+        print(txtc_wb + bgc_wb + "You have rested for two days.")
+        input("Press ENTER to return to the menu...")
+        HealthMonitor.start()
+        HitTheTrail.menu()
     def exit():
         print(resetc_wb)
         clearscreen()
@@ -350,46 +360,6 @@ you the message and the version of otpy you are using""")
             pass
         else:
             food_pounds = food_pounds - food_pounds
-    def health_sys():
-        global mm1_health
-        global food_pounds
-
-        if food_pounds > 50:
-            mm1_health = "Good"
-        if 50 > food_pounds > 10:
-            mm1_health = "Fair"
-        if food_pounds < 10:
-            mm1_health = "Poor"
-    def health_sys_checker():
-        import time
-        import sys
-        global food_pounds
-        global mm1_health
-
-        print("Welcome to the health_sys() function checker for otpy.")
-        print()
-        print("Testing on > 50 lbs. of food...")
-        time.sleep(1)
-        food_pounds = 100
-        HitTheTrail.health_sys()
-        health_100 = mm1_health
-        print("Done!")
-        print("Testing on 11-50 lbs. of food...")
-        time.sleep(1)
-        food_pounds = 30
-        HitTheTrail.health_sys()
-        health_30 = mm1_health
-        print("Done!")
-        print("Testing on < 10 lbs. of food...")
-        food_pounds = 0
-        HitTheTrail.health_sys()
-        health_0 = mm1_health
-        print("Done!")
-        print("First Test: {0} (should be 'Good')".format(health_100))
-        print("Second Test: {0} (should be 'Fair')".format(health_30))
-        print("Third Test: {0} (should be 'Poor')".format(health_0))
-        input("Press ENTER to exit...")
-        sys.exit(0)
 class TrailHunting:
     def main():
         clearscreen()
@@ -444,6 +414,65 @@ class TrailHunting:
         else:
             GameMods.unrecognized()
             TrailHunting.lighter()
+class HealthMonitor:
+    def start():
+        global mm1_health_int
+        mm1_health_int = 100
+        HealthMonitor.rest()
+    def rest():
+        global mm1_health_int
+        global days_norest
+        if 1 < days_norest < 6:
+            mm1_health_int = mm1_health_int - 20
+            HealthMonitor.food()
+        elif 6 < days_norest < 11:
+            mm1_health_int = mm1_health_int - 40
+            HealthMonitor.food()
+        elif days_norest > 11:
+            mm1_health_int = mm1_health_int - 60
+            HealthMonitor.food()
+        else:
+            HealthMonitor.food()
+    def food():
+        global mm1_health_int
+        global food_pounds
+        if int(food_pounds) > 100:
+            #debugging
+            print("food" + str(mm1_health_int))
+            input()
+            HealthMonitor.end()
+        elif 100 > int(food_pounds) > 50:
+            mm1_health_int = mm1_health_int - 10
+            #debugging
+            print("food" + str(mm1_health_int))
+            input()
+            HealthMonitor.end()
+        elif 50 > int(food_pounds) > 10:
+            mm1_health_int = mm1_health_int - 20
+            #debugging
+            print("food" + str(mm1_health_int))
+            input()
+            HealthMonitor.end()
+        else:
+            mm1_health_int = mm1_health_int - 30
+            #debugging
+            print("food" + str(mm1_health_int))
+            input()
+            HealthMonitor.end()
+    def end():
+        global mm1_health_int
+        global mm1_health
+        if 100 >= mm1_health_int >= 80:
+            mm1_health = "Good"
+        if 79 >= mm1_health_int >= 60:
+            mm1_health = "Fair"
+        if 59 >= mm1_health_int >= 40:
+            mm1_health = "Poor"
+        if 39 >= mm1_health_int >= 0:
+            mm1_health = "Very Poor"
+        print("final" + str(mm1_health_int))
+        input()
+
 class Calamities:
     def __init__():
         pass
