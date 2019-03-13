@@ -37,3 +37,13 @@ Windows:
 - navigate to the main "otpy" directory
 - double click "otpy_Launcher.bat"
 - program will begin
+
+GNU/Linux:
+
+- open terminal
+- navigate to the main "otpy" directory
+- launch otpy using the following command:
+
+```
+./otpy
+```
