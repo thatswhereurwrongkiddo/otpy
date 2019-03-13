@@ -27,26 +27,6 @@ TO-DO LIST
 - add Calamaties
 
   - PROGRESS: *not started*
----
-
-////////////////
-
-/ KNOWN ISSUES /
-
-////////////////
-
-// ISSUE NUMBER | 001
-
-// DESCRIPTION | there is a loop in HitTheTrail.exit() that
-brings you back to Store.checkout()
-
-// REASON | caused by improperly formatted if/else statement in Store.checkout(), issue resolved
-
-// BUGFIX STATUS | FIXED 3.1.19
-
-// FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit(), and fixing Store.checkout() if/else statement
-
-// BUGFIX DEV | thatswhereurwrongkiddo
 
 ---
 How to run otpy:

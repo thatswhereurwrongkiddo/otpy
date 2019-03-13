@@ -23,15 +23,6 @@
 #otpy v0.0.5_b4
 #changelog:
 ## changelog will be updated with 0.1 release
-################
-# KNOWN ISSUES #
-################
-## ISSUE NUMBER | 001
-## DESCRIPTION | there is a loop in HitTheTrail.exit() that brings you back to Store.checkout()
-## REASON | caused by improperly formatted if/else statement in Store.checkout(), issue resolved
-## BUGFIX STATUS | FIXED 3.1.19
-## FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit(), and fixing Store.checkout if/else statement
-## BUGFIX DEV | thatswhereurwrongkiddo
 
 ver = "0.0.5_b4"
 title = "otpy v{0}".format(ver)
