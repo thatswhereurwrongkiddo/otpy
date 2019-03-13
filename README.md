@@ -16,31 +16,17 @@ make exactly the next big thing here. otpy currently only runs on Windows due to
 ---
 TO-DO LIST
 ----
-- change name storage from temp program-generated sqlite database to python list
-
-  - PROGRESS: *finished*
-
-- add following features code in HitTheTrail.menu():
-
-  - Hunt
-
-    - PROGRESS: *finished*
-
-  - Rest
-
-    - PROGRESS: *finished*
-
-  - Check Supplies
-
-    - PROGRESS: *finished*
-
-- add calamities to HitTheTrail class
+- add menu_alert() function for main menu alerts
 
   - PROGRESS: *not started*
 
-- create food usage system and hunger/health monitor
+- add Towns/Forts to travel
 
-  - PROGRESS: *finished*
+  - PROGRESS: *not started*
+
+- add Calamaties
+
+  - PROGRESS: *not started*
 ---
 
 ////////////////
