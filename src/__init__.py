@@ -20,7 +20,7 @@
 #OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 #SOFTWARE.
 
-#otpy v0.0.5_b3
+#otpy v0.0.5_b4
 #changelog:
 ## changelog will be updated with 0.1 release
 ################
@@ -33,7 +33,7 @@
 ## FIXED BY | adding a sys.exit() to the end of HitTheTrail.exit(), and fixing Store.checkout if/else statement
 ## BUGFIX DEV | thatswhereurwrongkiddo
 
-ver = "0.0.5_b3"
+ver = "0.0.5_b4"
 title = "otpy v{0}".format(ver)
 
 #otpy is a simulator of the popular 1974 game "The Oregon Trail",

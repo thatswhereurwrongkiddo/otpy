@@ -29,7 +29,7 @@ from __init__ import ver, title
 import os
 from otpy_func_premain import checksys
 
-os.system("cd .. && start clearcache.bat")
+os.system('cd .. && start clearcache.bat && cls' if os.name == 'nt' else 'clear') 
 
 checksys()
 #define functions

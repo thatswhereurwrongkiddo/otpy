@@ -55,6 +55,7 @@ class NameChoice:
     def ncifel():
         global mm1
         mm1 = input(txtc_wb + bgc_wb + "Type your name: ")
+        mm1 = mm1.capitalize()
         if mm1.lower() == "" or mm1.lower() == " ":
                 print("Invalid name choice.")
                 print()
@@ -160,11 +161,10 @@ Total: ${8}
         clearscreen()
         global food
         global food_pounds
-        print(txtc_wb + bgc_wb + "I recommend 200 pounds of food for each person in your party")
-        print("Since you have 5, that would be 1000 pounds")
-        print("I sell food at $0.20 per pound")
+        print(txtc_wb + bgc_wb + "I recommend 200 pounds of food to start off your trip safely")
+        print("I sell food at $0.50 per pound")
         food_pounds = input("How many pounds would you like to buy?: ")
-        food = int(food_pounds) * .2
+        food = int(food_pounds) * .5
         food = int(food)
         print(resetc_wb)
         clearscreen()
@@ -212,12 +212,10 @@ Total: ${8}
             input("Press ENTER to continue...")
             pay_now = "no"
         if pay_now.lower() == "yes":
-            #global money
             money = money - total
             print(resetc_wb)
             global days_norest
             days_norest = 0
-            #HitTheTrail.menu()
         elif pay_now.lower() == "no":
             print(resetc_wb)
             clearscreen()
@@ -233,9 +231,12 @@ class HitTheTrail:
         global mm1_health
         global miles_t
         global date_c
+        global days_norest
         print(resetc_wb)
         clearscreen()
         r_date = "{0}/{1}/{2}".format(date_c[0], date_c[1], date_c[2])
+        if days_norest >= 6:
+            print(txtc_wb + bgc_wb + "You should probably think about resting, before your health gets too low.")
         print(txtc_wb + bgc_wb + """Menu:
 Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2} | Health: {3}
 ------------
@@ -422,13 +423,13 @@ class HealthMonitor:
     def rest():
         global mm1_health_int
         global days_norest
-        if 1 < days_norest < 6:
+        if 3 < days_norest < 6:
             mm1_health_int = mm1_health_int - 20
             HealthMonitor.food()
-        elif 6 < days_norest < 11:
+        elif 6 <= days_norest < 11:
             mm1_health_int = mm1_health_int - 40
             HealthMonitor.food()
-        elif days_norest > 11:
+        elif days_norest >= 11:
             mm1_health_int = mm1_health_int - 60
             HealthMonitor.food()
         else:
@@ -437,27 +438,15 @@ class HealthMonitor:
         global mm1_health_int
         global food_pounds
         if int(food_pounds) > 100:
-            #debugging
-            print("food" + str(mm1_health_int))
-            input()
             HealthMonitor.end()
         elif 100 > int(food_pounds) > 50:
             mm1_health_int = mm1_health_int - 10
-            #debugging
-            print("food" + str(mm1_health_int))
-            input()
             HealthMonitor.end()
         elif 50 > int(food_pounds) > 10:
             mm1_health_int = mm1_health_int - 20
-            #debugging
-            print("food" + str(mm1_health_int))
-            input()
             HealthMonitor.end()
         else:
             mm1_health_int = mm1_health_int - 30
-            #debugging
-            print("food" + str(mm1_health_int))
-            input()
             HealthMonitor.end()
     def end():
         global mm1_health_int
@@ -470,9 +459,6 @@ class HealthMonitor:
             mm1_health = "Poor"
         if 39 >= mm1_health_int >= 0:
             mm1_health = "Very Poor"
-        print("final" + str(mm1_health_int))
-        input()
-
 class Calamities:
     def __init__():
         pass

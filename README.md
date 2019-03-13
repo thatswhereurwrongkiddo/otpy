@@ -1,4 +1,4 @@
-# otpy v0.0.5_b3 (TESTING REPO)
+# otpy v0.0.5_b4 (TESTING REPO)
 
 otpy is a python rewrite of the popular 1974 game "The Oregon Trail",
 developed by Don Rawitsch, Bill Heinemann, and Paul Dillenberger and
@@ -18,7 +18,7 @@ TO-DO LIST
 ----
 - change name storage from temp program-generated sqlite database to python list
 
-  - PROGRESS: *not started*
+  - PROGRESS: *finished*
 
 - add following features code in HitTheTrail.menu():
 
@@ -28,7 +28,7 @@ TO-DO LIST
 
   - Rest
 
-    - PROGRESS: *working (on health monitor)*
+    - PROGRESS: *finished*
 
   - Check Supplies
 
@@ -40,7 +40,7 @@ TO-DO LIST
 
 - create food usage system and hunger/health monitor
 
-  - PROGRESS: *finished (partly)*
+  - PROGRESS: *finished*
 ---
 
 ////////////////
