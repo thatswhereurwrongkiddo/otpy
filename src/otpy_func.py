@@ -63,6 +63,16 @@ class NameChoice:
                 input("Press ENTER to continue...")
                 clearscreen()
                 NameChoice.ncifel()
+        print("")
+        y_n = input("You chose {0}, is that correct?: ".format(mm1))
+        if y_n.lower() == "n" or y_n.lower() == "no":
+            clearscreen()
+            NameChoice.ncifel()
+        elif y_n.lower() == "y" or y_n.lower() == "yes":
+            pass
+        else:
+            GameMods.unrecognized()
+            NameChoice.ncifel()
 def intro():
     global mm1
     clearscreen()
@@ -105,6 +115,7 @@ class GameMods:
     def unrecognized():
         print("That is an unrecognized choice.")
         input("Please Try Again...")
+        clearscreen()
 class Player:
     def profile():
         global name
@@ -279,7 +290,7 @@ Miles Traveled: {0}/2000 | Remaining Money: {1} | Current Date: {2} | Health: {3
             date_c[0] = int(date_c[0]) + 1
             date_c[1] = 1
             HitTheTrail.menu()
-        if date_c[0] in months_with_30 and int(date_c[1]) < 30:
+        elif date_c[0] in months_with_30 and int(date_c[1]) < 30:
             date_c[1] = int(date_c[1]) + 1
             HitTheTrail.menu()
         elif date_c[0] in months_with_30 and int(date_c[1]) >= 30:
@@ -306,6 +317,17 @@ Boxes of Spare Parts: {4}
         HitTheTrail.menu()
     def rest():
         global days_norest
+        global date_c
+        if date_c[0] in months_with_31 and int(date_c[1]) < 31:
+            date_c[1] = int(date_c[1]) + 2
+        elif date_c[0] in months_with_31 and int(date_c[1]) >= 31:
+            date_c[0] = int(date_c[0]) + 1
+            date_c[1] = 2
+        elif date_c[0] in months_with_30 and int(date_c[1]) < 30:
+            date_c[1] = int(date_c[1]) + 2
+        elif date_c[0] in months_with_30 and int(date_c[1]) >= 30:
+            date_c[0] = int(date_c[0]) + 1
+            date_c[1] = 2
         clearscreen()
         days_norest = 0
         print(txtc_wb + bgc_wb + "You have rested for two days.")
