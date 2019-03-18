@@ -16,9 +16,6 @@ make exactly the next big thing here. otpy currently only runs on Windows due to
 ---
 TO-DO LIST
 ----
-- add menu_alert() function for main menu alerts
-
-  - PROGRESS: *not started*
 
 - add Towns/Forts to travel
 
@@ -26,7 +23,7 @@ TO-DO LIST
 
 - add Calamaties
 
-  - PROGRESS: *not started*
+  - PROGRESS: *working*
 
 ---
 How to run otpy:
